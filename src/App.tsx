@@ -1,5 +1,6 @@
 import "./App.css";
-import Counter from "./components/counter";
+// import Counter from "./components/Counter";
+import LocalStorageDemo from "./components/LocalStorageDemo";
 // import Button from "./components/Button";
 
 function App() {
@@ -38,8 +39,8 @@ function App() {
        ></Button> */}
 
 
-<Counter min={0} max={10}></Counter>
-
+{/* <Counter min={0} max={10}></Counter> */}
+<LocalStorageDemo></LocalStorageDemo>
      </div>
 
 

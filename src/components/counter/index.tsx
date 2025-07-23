@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react'
 import Button from '../Button'
-import type { CounterProps } from './type'
 import { initialState, reducer } from '../../reducers/counter'
+import type { CounterProps } from './type'
 
 const Counter:React.FC<CounterProps> = ({min,max}) => {
 
@@ -11,9 +11,15 @@ const [state,dispatch]=useReducer(reducer,initialState)
 
 const handleIncrement = () => {
   dispatch({ type: 'increment' });
+  if(state.count >= max){
+alert(`You have reached the maximum count of ${max}.`);
+  }
 }
 const handleDecrement = () => {
   dispatch({type: 'decrement'});
+  if(state.count <= min){
+    alert(`You have reached the minimum count of ${min}.`);
+  }
 }
 const handleReset = () => {
   dispatch({ type: 'reset' });

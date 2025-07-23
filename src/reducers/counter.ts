@@ -1,5 +1,5 @@
 import type React from "react";
-import type { CounterAction, CounterState } from "../components/counter/type";
+import type { CounterAction, CounterState } from "../components/Counter/type";
 
 export const initialState: CounterState = {
   count: 0,
