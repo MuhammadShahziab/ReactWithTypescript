@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
 
 
 interface userdata {
-    role: string;
+    role: "user" | "admin";
     isVerified: boolean;
     name: string;
     email: string;
@@ -10,18 +11,35 @@ interface userdata {
 
 const useAuth = () => {
  
-    const user = localStorage.getItem("userData");
-        const userData :userdata = user ? JSON.parse(user) : null;
+const [userData , setUserData] = useState<userdata | null>(null);
 
-    const isAuthenticated = user !== null;
-    const {role,isVerified} = userData && userData;
+
+const getUser = ()=>{
+
+    const user = localStorage.getItem("userData");
+    if (user) {
+        setUserData(JSON.parse(user));
+    } else {
+        setUserData(null);
+    }
+}
+
+useEffect(() => {
+    getUser();
+}, []);
+
+
+    const isAuthenticated = userData !== null;
+
+const role = userData?.role || "user";
+const isVerified = userData?.isVerified ?? false
 
     const isAdmin = role ==="admin"
     return {
         isAuthenticated,
         userData,
         isAdmin,
-        isVerified,role
+        isVerified,role,getUser
     }
 
 }
