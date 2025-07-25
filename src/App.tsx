@@ -1,23 +1,18 @@
 import "./App.css";
+import Card from "./components/Card";
 // import Counter from "./components/Counter";
 import LocalStorageDemo from "./components/LocalStorageDemo";
 // import Button from "./components/Button";
 
 function App() {
-
-
   // const handleLogout = () => {
   //   alert("Logout clicked");
   // };
 
-
-
-
   return (
     <>
-
-       <div className=" flex items-center justify-center gap-6 h-screen bg-gray-100 ">
-       {/* <Button
+      <div className=" flex items-center justify-center gap-6 h-screen  max-w-5xl mx-auto p-4">
+        {/* <Button
          label="Login"
          type="submit"
          loading={true}
@@ -38,15 +33,15 @@ function App() {
          onClick={handleLogout}
        ></Button> */}
 
-
-{/* <Counter min={0} max={10}></Counter> */}
-<LocalStorageDemo></LocalStorageDemo>
-     </div>
-
-
-    
+        {/* <Counter min={0} max={10}></Counter> */}
+        <div className="flex-1">
+          <LocalStorageDemo></LocalStorageDemo>
+        </div>
+        <div className="flex-1">
+          <Card></Card>
+        </div>
+      </div>
     </>
-  
   );
 }
 
